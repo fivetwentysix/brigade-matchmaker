@@ -1,8 +1,10 @@
-FROM alpine:3.7
+FROM node:6.12.2-alpine
 
-RUN apk add --update nodejs nodejs-npm git python alpine-sdk
+RUN apk add --update git python alpine-sdk
 RUN npm -g install yarn
 RUN mkdir /app
-WORKDIR /app
 VOLUME /app
+WORKDIR /app
+COPY . /app
+RUN yarn --pure-lockfile
 CMD ["yarn"]

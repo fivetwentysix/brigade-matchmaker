@@ -5,3 +5,6 @@ services:
 
   web:
     build: ./components/web
+    command: yarn start
+    volumes:
+      - "./components/web/:/app"
